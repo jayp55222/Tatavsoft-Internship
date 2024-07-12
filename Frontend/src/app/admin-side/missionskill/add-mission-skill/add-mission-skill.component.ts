@@ -14,8 +14,6 @@ export class AddMissionSkillComponent implements OnInit {
   addMissionSkillForm:FormGroup;
   skillId:any;
   editData:any;
-  formValid:boolean = false;
-  
   constructor(public fb:FormBuilder,public router:Router,public toast:NgToastService,public service:AdminsideServiceService,public activateRoute:ActivatedRoute) {
     this.skillId = this.activateRoute.snapshot.paramMap.get('Id');
   }
@@ -32,10 +30,6 @@ export class AddMissionSkillComponent implements OnInit {
       skillName:['',Validators.compose([Validators.required])],
       status:['',Validators.compose([Validators.required])]
     });
-  }
-
-  get skillName(){
-    return this.addMissionSkillForm.get('skillName'); 
   }
   FetchDataById(id:any)
   {
